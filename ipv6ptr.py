@@ -1,3 +1,4 @@
+# Based on override_server.py by Twisted Matrix Laboratories.
 from twisted.internet import reactor, defer
 from twisted.names import client, dns, error, server
 
