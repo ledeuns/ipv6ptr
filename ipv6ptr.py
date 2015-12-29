@@ -1,10 +1,15 @@
 # Based on override_server.py by Twisted Matrix Laboratories.
+#
+# Example :
+# $ dig -p 10053 @127.0.0.1 -x 2001:db8::1  +short
+# 2001-0db8-0000-0000-0000-0000-0000-0001.example.net.
+#
 from twisted.internet import reactor, defer
 from twisted.names import client, dns, error, server
 
 class DynamicResolver(object):
     _myprefix = "8.b.d.0.1.0.0.2.ip6.arpa"
-    _mysuffix = ".example.net"
+    _mysuffix = ".example.net."
     def _ResponseRequired(self, query):
         if query.type == dns.PTR:
 	    if query.name.name.endswith(self._myprefix):
